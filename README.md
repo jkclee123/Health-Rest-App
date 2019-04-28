@@ -17,3 +17,15 @@
 | `GET` | /weight/age?rangeSize= | Get average weightof person group by age of range size |
 | `GET` | /bmi/{personId} | Get BMI of person by id |
 
+## Form Data
+
+> Sample form data for person
+
+
+```json
+{
+  "id":1,
+  "name":"Tony Stark",
+  "dateOfBirth":"2019-04-28"
+}
+```
