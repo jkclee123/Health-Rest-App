@@ -30,13 +30,11 @@ Sample Request form data for person
 Sample Request form data for measurements
 ```json
 {
-  "height":120
-  "weight":70
+  "height":120,
+  "weight":70,
   "personId":1
 }
 ```
 >Height in cm
->
->Weight in hk
->
+>Weight in kg
 >Person of personId must exist
