@@ -58,5 +58,19 @@
   }
 ]
 ```
-`rangeSize` is not required
+`rangeSize` is not required\
 *Default value as 10*
+
+
+#### Sample Response from 
+` /bmi/{personId} `
+```
+{
+  "person":{
+    "id":1,
+    "name":"Tony Stark",
+    "dateOfBirth":"1970-05-29"
+   },
+   "bmi":29.69
+}
+```
