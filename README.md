@@ -20,7 +20,7 @@
 
 ## Request
 
-Sample Request form data for person
+#### Sample Request form data for person
 ```json
 {
   "name":"Tony Stark",
@@ -28,7 +28,7 @@ Sample Request form data for person
 }
 ```
 
-Sample Request form data for measurements
+#### Sample Request form data for measurements
 ```json
 {
   "height":120,
@@ -43,9 +43,20 @@ Sample Request form data for measurements
 
 
 ## Response
+
+#### Sample Response from 
 ``` /height/age?rangeSize=5 ```
 ```
 [
-  {"ageRange":"45-49","avgValue":"183.73"},{"ageRange":"100-104","avgValue":"181.61"}
+  {
+    "ageRange":"45-49",
+    "avgValue":"183.73"
+  },
+  {
+    "ageRange":"100-104",
+    "avgValue":"181.61"
+  }
 ]
 ```
+`rangeSize` is not required
+*Default value as 10*
