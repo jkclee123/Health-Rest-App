@@ -53,17 +53,17 @@ public class HealthService {
   }
 
   public void deletePersonById(Integer personId) {
-    personRepository.deleteById(personId);
+    try{
+      personRepository.deleteById(personId);
+    } catch (IllegalArgumentException e){
+      throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Person does not exist");
+    }
   }
 
   public void insertMeasurements(MeasurementsEntity req) {
-    PersonEntity person = this.getPersonById(req.getPerson().getId());
-    if (person == null){
-      throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Person does not exists");
-    }
     MeasurementsEntity existMeasurements = this.getMeasurementsByPersonId(req.getPerson().getId());
     if (existMeasurements != null){
-      throw new ResponseStatusException(HttpStatus.BAD_REQUEST, String.format("Measurements of %s already exists", person.getName()));
+      throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Record does not exist");
     }
     measurementsRepository.save(req);
   }
@@ -80,13 +80,9 @@ public class HealthService {
   }
 
   public void updateMeasurements(MeasurementsEntity req) {
-    PersonEntity person = this.getPersonById(req.getPerson().getId());
-    if (person == null){
-      throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Person does not exists");
-    }
     MeasurementsEntity existMeasurements = this.getMeasurementsByPersonId(req.getPerson().getId());
     if (existMeasurements == null){
-      throw new ResponseStatusException(HttpStatus.BAD_REQUEST, String.format("Measurements of %s does not exist" ,person.getName()));
+      throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Record does not exist");
     }
     req.setId(existMeasurements.getId());
     measurementsRepository.save(req);
@@ -126,11 +122,11 @@ public class HealthService {
 
   public BMIResponse getBMIByPersonId(Integer personId) {
     try{
-      PersonEntity person = this.getPersonById(personId);
       MeasurementsEntity measurements = this.getMeasurementsByPersonId(personId);
-      if (person == null || measurements == null){
-        throw new Exception("No record of person");
+      if (measurements == null){
+        throw new Exception("Record does not exist");
       }
+      PersonEntity person = measurements.getPerson();
       Double bmi = HealthUtils.calBMI(measurements.getHeight(), measurements.getWeight());
       bmi = Double.valueOf(df2.format(bmi));
       return new BMIResponse(person, bmi);

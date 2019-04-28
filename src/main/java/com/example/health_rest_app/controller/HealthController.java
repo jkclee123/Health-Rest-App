@@ -45,7 +45,7 @@ public class HealthController {
   }
 
   @PostMapping("/measurements")
-  public void postMeasurements(@RequestBody MeasurementsEntity req) throws Exception{
+  public void postMeasurements(@RequestBody MeasurementsEntity req){
     healthService.insertMeasurements(req);
   }
 
@@ -60,7 +60,7 @@ public class HealthController {
   }
 
   @PutMapping("/measurements")
-  public void putMeasurements(@RequestBody MeasurementsEntity req) throws Exception{
+  public void putMeasurements(@RequestBody MeasurementsEntity req) {
     healthService.updateMeasurements(req);
   }
 
