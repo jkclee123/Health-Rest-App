@@ -17,15 +17,26 @@
 | `GET` | /weight/age?rangeSize= | Get average weightof person group by age of range size |
 | `GET` | /bmi/{personId} | Get BMI of person by id |
 
-## Form Data
+## Request Form Data
 
-> Sample form data for person
-
-
+Sample Request form data for person
 ```json
 {
-  "id":1,
   "name":"Tony Stark",
   "dateOfBirth":"2019-04-28"
 }
 ```
+
+Sample Request form data for measurements
+```json
+{
+  "height":120
+  "weight":70
+  "personId":1
+}
+```
+>Height in cm
+>
+>Weight in hk
+>
+>Person of personId must exist
