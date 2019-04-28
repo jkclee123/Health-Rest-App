@@ -45,7 +45,7 @@
 ## Response
 
 #### Sample Response from 
-``` /height/age?rangeSize=5 ```
+` /height/age?rangeSize=5 `
 ```
 [
   {
@@ -63,7 +63,7 @@
 
 
 #### Sample Response from 
-` /bmi/{personId} `
+` /bmi/1 `
 ```
 {
   "person":{
