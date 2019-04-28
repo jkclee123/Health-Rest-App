@@ -35,6 +35,6 @@ Sample Request form data for measurements
   "personId":1
 }
 ```
->Height in cm
->Weight in kg
->Person of personId must exist
+*Height in cm*
+*Weight in kg*
+*Person of personId must exist*
