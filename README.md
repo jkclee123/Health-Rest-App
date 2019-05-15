@@ -2,7 +2,7 @@
 
 ## API
 
-| Http Method | End Point                | Description                                             |
+| Http Method | Mapping                  | Description                                             |
 | ----------- | ------------------------ | ------------------------------------------------------- |
 | `POST`      | /person                  | Insert person with form data                            |
 | `GET`       | /person                  | Get all person                                          |
