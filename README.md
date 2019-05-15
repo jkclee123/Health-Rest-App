@@ -1,6 +1,6 @@
 # Health Rest App
 
-A Spring Boot REST API application that\
+A Spring Boot REST API application that
 - records individuals' body measurements
 - returns statistics with record data 
   - individuals' BMI
